@@ -1,0 +1,22 @@
+#Caesar_Cipher.
+text = input("Enter the text: ")
+key = int(input("Enter the key: "))
+
+result = ""
+
+for ch in text:
+    if ch.isalpha():
+        if ch.isupper():
+            result += chr((ord(ch) - ord('A') + key) % 26 + ord('A'))
+        else:
+            result += chr((ord(ch) - ord('a') + key) % 26 + ord('a'))
+    else:
+        result += ch
+
+print("Encrypted text:", result)
+OUTPUT :
+Enter the text: HELLO
+Enter the key: 3
+Encrypted text: KHOOR
+
+
