@@ -1,0 +1,22 @@
+# Polyalphabetic Substitution Cipher
+# Vigenere Cipher
+
+text = input("Enter plaintext: ").upper()
+key = input("Enter key: ").upper()
+
+cipher = ""
+j = 0
+
+for ch in text:
+    if ch.isalpha():
+        p = ord(ch) - ord('A')
+        k = ord(key[j % len(key)]) - ord('A')
+
+        c = (p + k) % 26
+
+        cipher += chr(c + ord('A'))
+        j += 1
+    else:
+        cipher += ch
+
+print("Ciphertext:", cipher)
