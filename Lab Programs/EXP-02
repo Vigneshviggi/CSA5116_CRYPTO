@@ -1,0 +1,18 @@
+# Monoalphabetic Substitution Cipher
+
+text = input("Enter plaintext: ")
+key = input("Enter 26-letter key: ").upper()
+
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+text = text.upper()
+
+cipher = ""
+
+for ch in text:
+    if ch.isalpha():
+        cipher += key[alphabet.index(ch)]
+    else:
+        cipher += ch
+
+print("Ciphertext:", cipher)
+
