@@ -1,0 +1,17 @@
+# Affine Cipher
+
+text = input("Enter plaintext: ").upper()
+a = int(input("Enter value of a: "))
+b = int(input("Enter value of b: "))
+
+cipher = ""
+
+for ch in text:
+    if ch.isalpha():
+        p = ord(ch) - ord('A')
+        c = (a * p + b) % 26
+        cipher += chr(c + ord('A'))
+    else:
+        cipher += ch
+
+print("Ciphertext:", cipher)
