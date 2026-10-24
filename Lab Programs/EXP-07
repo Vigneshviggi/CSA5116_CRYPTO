@@ -1,0 +1,15 @@
+# Substitution Cipher Decryption
+
+cipher = input("Enter ciphertext: ").upper()
+key = input("Enter 26-letter decryption key: ").upper()
+
+alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+plain = ""
+
+for ch in cipher:
+    if ch in alphabet:
+        plain += key[alphabet.index(ch)]
+    else:
+        plain += ch
+
+print("Plaintext:", plain)
