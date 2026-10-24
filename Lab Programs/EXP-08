@@ -1,0 +1,16 @@
+# Keyword Substitution Cipher
+
+text = input("Enter plaintext: ").upper()
+
+plain = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+key = "CIPHERABDFGJKLMNOQSTUVWXYZ"
+
+cipher = ""
+
+for ch in text:
+    if ch in plain:
+        cipher += key[plain.index(ch)]
+    else:
+        cipher += ch
+
+print("Ciphertext:", cipher)
