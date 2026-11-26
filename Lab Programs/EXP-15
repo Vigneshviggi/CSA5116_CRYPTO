@@ -1,0 +1,26 @@
+
+cipher = input("Enter ciphertext: ")
+top = int(input("Enter number of results: "))
+
+results = []
+
+for key in range(26):
+    text = ""
+
+    for ch in cipher:
+        if ch.isalpha():
+            base = ord('A') if ch.isupper() else ord('a')
+            text += chr((ord(ch) - base - key) % 26 + base)
+        else:
+            text += ch
+
+    score = sum(text.lower().count(c) * f for c, f in
+                [('e', 12), ('t', 9), ('a', 8),
+                 ('o', 7), ('i', 7), ('n', 7)])
+
+    results.append((score, key, text))
+
+results.sort(reverse=True)
+
+for score, key, text in results[:top]:
+    print("Key:", key, "Plaintext:", text)
