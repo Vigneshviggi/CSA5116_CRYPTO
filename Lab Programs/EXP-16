@@ -1,0 +1,26 @@
+
+from collections import Counter
+
+cipher = input("Enter ciphertext: ")
+top = int(input("Enter number of results: "))
+
+frequency = "etaoinshrdlcumwfgypbvkjxqz"
+
+counts = Counter(c.lower() for c in cipher if c.isalpha())
+sorted_letters = [x for x, y in counts.most_common()]
+
+mapping = dict(zip(sorted_letters, frequency))
+
+result = ""
+
+for ch in cipher:
+    if ch.isalpha():
+        letter = mapping.get(ch.lower(), ch.lower())
+        result += letter.upper() if ch.isupper() else letter
+    else:
+        result += ch
+
+print("Possible plaintext:")
+print(result)
+print("Approximate top result:", 1)
+print("Requested results:", top)
