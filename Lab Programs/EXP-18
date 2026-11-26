@@ -1,0 +1,16 @@
+
+from Crypto.Cipher import DES
+
+key = bytes.fromhex("133457799BBCDFF1")
+
+des = DES.new(key, DES.MODE_ECB)
+
+plaintext = bytes.fromhex("0123456789ABCDEF")
+ciphertext = des.encrypt(plaintext)
+
+print("Original Key:", key.hex().upper())
+print("Ciphertext:", ciphertext.hex().upper())
+
+print("DES uses 16 rounds.")
+print("Each round uses a 48-bit subkey.")
+print("24 bits are selected from each 28-bit half.")
