@@ -1,0 +1,10 @@
+
+from Crypto.Cipher import DES
+
+key = b'12345678'
+ciphertext = bytes.fromhex("85E813540F0AB405")
+
+des = DES.new(key, DES.MODE_ECB)
+plaintext = des.decrypt(ciphertext)
+
+print("Decrypted Text:", plaintext.hex().upper())
