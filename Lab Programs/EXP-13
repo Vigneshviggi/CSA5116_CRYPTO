@@ -1,0 +1,9 @@
+
+import sympy as sp
+
+P = sp.Matrix([[7, 4], [4, 11]])
+C = sp.Matrix([[19, 0], [0, 19]])
+
+K = C * P.inv_mod(26)
+print("Recovered Key:")
+print(K.applyfunc(lambda x: x % 26))
